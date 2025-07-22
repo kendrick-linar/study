@@ -1,0 +1,39 @@
+def slesh(num):
+    for i in range(num):
+        for j in range(num):
+            if j == i:
+                print('\\', end=' ')
+            else:
+                print(' ', end=' ')
+    print()    
+    
+def reverse_slesh(num):
+    for i in range(num):
+        for j in range(num):
+            if j == i:
+                print('/', end=' ')
+            else:
+                print(' ', end=' ')
+    print()   
+
+def draw(sign):
+    if sign == '/':
+        slesh(num)
+    elif sign == '\\':
+        reverse_slesh(num)
+    else:
+        x_prog(num)
+
+
+sign = input('Введите знак(/,\,x: ')
+num = int(input('Введите количество: '))
+
+if sign == '/' or sign == '\\' or sign == 'x':
+    draw(sign)
+else:
+    print('Выбран неверный знак')
+    sign = input('Введите знак(/,\,x: ')
+
+    
+ 
+    
