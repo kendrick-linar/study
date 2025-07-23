@@ -1,39 +1,54 @@
-def slesh(num):
+def draw_backslash(num):
     for i in range(num):
         for j in range(num):
             if j == i:
                 print('\\', end=' ')
             else:
                 print(' ', end=' ')
-    print()    
-    
-def reverse_slesh(num):
+        print()
+
+def draw_slash(num):
     for i in range(num):
         for j in range(num):
-            if j == i:
+            if j + i == num - 1:
                 print('/', end=' ')
+
             else:
                 print(' ', end=' ')
-    print()   
+        print()
+
+def draw_x(num):
+    for i in range(num):
+        for j in range(num) :
+            if j + i == num - 1 or j == i :
+                print('x', end=' ')
+
+            else:
+                print(' ', end=' ')
+        print()
 
 def draw(sign):
     if sign == '/':
-        slesh(num)
+        draw_slash(num)
     elif sign == '\\':
-        reverse_slesh(num)
+        draw_backslash(num)
     else:
-        x_prog(num)
+        draw_x(num)
 
 
-sign = input('Введите знак(/,\,x: ')
+def examination(sign):
+    if sign == '/' or sign == '\\' or sign == 'x':
+        draw(sign)
+    else:
+        print('Выбран неверный знак')
+        sign = input(r'Введите знак(/,\,x: ')
+
+sign = input(r'Введите знак(/,\,x: ')
 num = int(input('Введите количество: '))
 
-if sign == '/' or sign == '\\' or sign == 'x':
-    draw(sign)
-else:
-    print('Выбран неверный знак')
-    sign = input('Введите знак(/,\,x: ')
+examination(sign)
 
-    
- 
-    
+
+
+
+
