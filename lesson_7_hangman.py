@@ -27,7 +27,19 @@ def list_to_string_convert(t):
         word += i        
     return word
 
-print(list_to_string_convert(['_']))
+def build_template(t, w, g=' '):
+    new_template = t
+    for i in range(len(w)):
+        if w[i] == g:
+            print('Буква угадана!')
+            new_template[i] = g    
+        else:
+            print('Буква не совпала!')
+    print(new_template)            
+
+
+
+print(build_template(['_','_', '_', '_', '_'], 'onrar', g='r'))
 
 
 
