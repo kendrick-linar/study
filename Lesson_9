@@ -1,0 +1,16 @@
+def check_letters_big(words):
+    big_letters = sum(1 for char in words if char.isupper())
+    return big_letters
+
+def check_letters_little(words):
+    little_letters = sum(1 for char in words if char.islower())
+    return little_letters
+
+def game():
+    while True:
+        words = input('Введите предложение: ')
+        count_big = check_letters_big(words)
+        count_little = check_letters_little(words)
+        print(f"Количество заглавных букв: {count_big},\nколичество строчных букв: {count_little}")
+
+game()
