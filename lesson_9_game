@@ -1,0 +1,76 @@
+
+
+
+
+
+
+#def borders(user):
+#    row = []
+#    for _ in range(user):
+#        row.append('_')
+#    row_hero =     
+#    print(row)    
+    
+    
+    #for column in range(user):
+     #   if column == user // 2:
+    #         print('*')
+     #   else:
+      #      for row in range(user):
+       #         if row == user // 2:
+        #            print('*') 
+         #       else:    
+          #          print('_', end=' ')
+           # print()    
+            
+def move_player(row, col, direction, size):
+    if direction == 'w':  
+        row = (row - 1) % size
+    elif direction == 's': 
+        row = (row + 1) % size
+    elif direction == 'a': 
+        col = (col - 1) % size
+    elif direction == 'd': 
+        col = (col + 1) % size
+    return row, col        
+
+
+def print_field(field, hero_col, hero_row):
+        display = [row[:] for row in field]
+        display[hero_row][hero_col] = '*'
+        
+        for row in display:
+            print(' '.join(row))
+        print()    
+    
+
+def game():
+    print('Добро пожаловать в игру!')
+    print('Управление: w - вверх, s - вниз, a - влево, d - вправо')
+    
+    try:
+        size = int(input("Размер поля: "))
+    except ValueError:
+        print('Введите число')
+        return    
+    
+    hero_col = size // 2
+    hero_row = size // 2
+    
+    
+    while True:
+        print_field([['_'] * size for _ in range(size)], hero_col, hero_row)
+        
+        move = input('Введите w/s/a/d или exit для выхода: ').lower()
+        
+        if move == 'exit':
+            print('Игра окончена!')
+            break
+            
+        if move in ['w', 'a', 's', 'd']:
+            hero_row, hero_col = move_player(hero_row, hero_col, move, size)
+        else:
+            print('Введите верную команду')
+        
+        
+game()        
