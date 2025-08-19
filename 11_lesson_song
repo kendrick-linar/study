@@ -1,0 +1,17 @@
+with open('lyrics.txt', encoding="utf8") as f:
+    lyrics = f.read()
+
+    lyrics_list = []
+    banned = [' ', '.', ',', '!']
+    lyrics_word = ''
+    for w in lyrics:
+        if w not in banned:
+            lyrics_word += w
+        else:
+            lyrics_list.append(lyrics_word)
+
+    print(lyrics_list)            
+    
+        
+
+    
