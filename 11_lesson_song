@@ -1,28 +1,51 @@
-with open(r'C:\Users\ln.gabitov\Desktop\work\2.python\тест\lyrics.txt', encoding="utf8") as f:
+with open(r'lyrics.txt', encoding="utf8") as f:
     lyrics = f.read()
 
-    lyrics_list = []
-    banned = [' ', '.', ',', '!', '\n', r"'", '?']
-    lyrics_word = ''
-    count_word = 0
-    key_word = 'last'
+lyrics_list = []
+banned = [' ', '.', ',', '!', '\n', r"'", '?']
+lyrics_word = ''
+count_word = 0
+key_word = 'you'
 
 
-    for w in lyrics:
-        if w not in banned:
-            lyrics_word += w
-            #print(f'Блок if {lyrics_word}')
+def most_common_words(freq):
+    r = {}
+    result = 'key', 0
+    for w in freq:
+        if w in r:
+            r[w] += 1
         else:
-            lyrics_list.append(lyrics_word)
-            lyrics_word = ""
-            #print(f'Блок else {lyrics_word}')
-            continue
-    
-    for w in lyrics_list:
-        if w.lower() == key_word:
-            count_word += 1         
+            r[w] = 1 
+
+    max_word = []
+    max_num = max(r.values())
+
+    for k, val in r.items():
+        if val == max_num:
+            max_word.append(k)      
 
 
-    print(lyrics_list)            
-    print(f'Количество слов {count_word}')
+    #for k, val in r.items():
+        #if val > result[1]:        
+            #result = k, val
+    return max_word, max_num        
+
+
+for w in lyrics:
+    if w not in banned:
+        lyrics_word += w
+        
+    else:
+        lyrics_list.append(lyrics_word)
+        lyrics_word = ""
+
+for w in lyrics_list:
+    if w.lower() == key_word:
+        count_word += 1         
+          
+max_word = most_common_words(lyrics_list)
+
+
+#print(f'Словарь: {r.items()}')
+print(max_word)
         
