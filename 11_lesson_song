@@ -1,17 +1,28 @@
-with open('lyrics.txt', encoding="utf8") as f:
+with open(r'C:\Users\ln.gabitov\Desktop\work\2.python\тест\lyrics.txt', encoding="utf8") as f:
     lyrics = f.read()
 
     lyrics_list = []
-    banned = [' ', '.', ',', '!']
+    banned = [' ', '.', ',', '!', '\n', r"'", '?']
     lyrics_word = ''
+    count_word = 0
+    key_word = 'last'
+
+
     for w in lyrics:
         if w not in banned:
             lyrics_word += w
+            #print(f'Блок if {lyrics_word}')
         else:
             lyrics_list.append(lyrics_word)
+            lyrics_word = ""
+            #print(f'Блок else {lyrics_word}')
+            continue
+    
+    for w in lyrics_list:
+        if w.lower() == key_word:
+            count_word += 1         
+
 
     print(lyrics_list)            
-    
+    print(f'Количество слов {count_word}')
         
-
-    
