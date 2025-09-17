@@ -1,0 +1,11 @@
+def fib(n):
+    nums = [0, 1]
+	
+    for _ in range(2, n +1):
+	    #num_app = (_ - 1) + (_ - 2)
+	    nums.append(nums[-1] + nums[-2])
+    print(nums)     
+    return nums
+
+
+fib(11)
