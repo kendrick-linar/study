@@ -1,0 +1,22 @@
+text = '"Ура!", - вопите, дети, повару!'
+
+def convert(text):
+    clean = 'йцукенгшщзхъфывапролджэячсмитьбю'
+    temp_text = ''
+    for w in text.lower():
+        if w in clean:
+            temp_text += w
+    return temp_text
+
+def palindrom(text):
+    if len(text) == 0 or len(text) == 1:
+        return True
+    else:
+        return text[0] == text[-1] and palindrom(text[1:-1])
+    
+conv_text = convert(text)    
+print(palindrom(conv_text))
+
+
+    
+    
