@@ -1,0 +1,47 @@
+import turtle
+
+screen = turtle.getscreen()
+
+class UserTurtle(turtle.Turtle):
+    def draw_rect(self, x, y, width, height, color):
+
+        t.penup()
+        t.goto(x, y)
+        t.color(color)
+        t.pendown()
+        for _ in range(2):
+            t.forward(width)
+            t.left(90)
+            t.forward(height)
+            t.left(90)
+
+    def draw_circle(self, x, y, radius, color):
+
+        t.penup()
+        t.goto(x, y)
+        t.color(color)
+        t.pendown()
+        t.circle(radius)
+    
+class Tower(UserTurtle):
+    def build(self, num):
+        self.draw_rect(200, 200, 50, 50, "blue")
+        self.draw_rect(175, 150, 100, 50, "green")
+        self.draw_rect(125, 100, 200, 50, "red")
+
+class Car(UserTurtle):
+    def car_build(self, size, wheel_color, base_color):
+        self.draw_rect(100, 50, size * 2, size, base_color)
+        self.draw_circle(110, 15, size / 3, wheel_color)
+        self.draw_circle(190, 15, size / 3, wheel_color)
+
+
+#t = Tower()
+
+#t.build(4)
+
+t = Car()
+t.car_build(50, "red", "blue")
+
+screen.mainloop()
+
