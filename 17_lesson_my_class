@@ -1,0 +1,9 @@
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def __truediv__(selv, other):
+        if isinstance(other, MyClass):
+            num = MyClass(str(self.value) + "." + str(other.value))
+            return int(num)
+                 
