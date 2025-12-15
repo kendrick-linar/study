@@ -1,0 +1,23 @@
+def is_palindrome(s):
+    tmp = s[::-1]
+    #tmp.reverse()
+
+    print(tmp)
+    print(s)
+
+    return tmp == s
+    
+def word(n):
+    result = []
+    for i in range(n):
+        element = input('Enter element: ')
+        result.append(element)
+
+    if is_palindrome(result):
+        print(f'{result} - is palindrome')
+    else:
+        print(f'{result} - not a palindrome')
+
+n = 3
+
+word(n)
